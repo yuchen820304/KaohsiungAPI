@@ -38,7 +38,7 @@ select{
   right: 0;
   margin: auto;
   appearance:none;
-  background: url(../images/icons_down.png) 95% 50% no-repeat rgba(255,255,255,0.70);
+  background: url(../img/icons_down.png) 95% 50% no-repeat rgba(255,255,255,0.70);
 }
 
 section{

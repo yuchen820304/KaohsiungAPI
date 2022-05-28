@@ -25,10 +25,10 @@ function content(name, picture, zone, openTime, address, tel, ticketInfo) {
       <h2>${name}</h2>
       <p>${zone}</p>
     </li>
-    <li><img src="./images/icons_clock.png" alt="" />${openTime}</li>
-    <li><img src="./images/icons_pin.png" alt="" />${address}</li>
-    <li><img src="./images/icons_phone.png" alt="" />${tel}</li>
-    <li><img src="./images/icons_tag.png" alt="" />${ticketInfo}</li>
+    <li><img src="../img/icons_clock.png" alt="" />${openTime}</li>
+    <li><img src="../img/icons_pin.png" alt="" />${address}</li>
+    <li><img src="../img/icons_phone.png" alt="" />${tel}</li>
+    <li><img src="../img/icons_tag.png" alt="" />${ticketInfo}</li>
   </ul>
   `;
 }
