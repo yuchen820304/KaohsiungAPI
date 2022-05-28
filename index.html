@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>高雄旅遊景點</title>
   <link rel="stylesheet" href="./css/index.css">
+  <script src="https://kit.fontawesome.com/fbb6fd8295.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     <header>
       <img src="./images/Hero.png" alt="">
       <h1>高雄旅遊資訊</h1>
-      <select name="" id="">
+      <select class="option" name="" id="">
         <option value="" selected>--請選擇行政區--</option>
       </select>
     </header>
@@ -22,18 +23,32 @@
     <section>
       <h2>熱門行政區</h2>
       <ul>
-        <li>苓雅區</li>
-        <li>三民區</li>
-        <li>新興區</li>
-        <li>鹽埕區</li>
+        <li class="district">苓雅區</li>
+        <li class="district">三民區</li>
+        <li class="district">新興區</li>
+        <li class="district">鹽埕區</li>
       </ul>
     </section>
 
+    <div class="dotted_line">
+      <div class="arrow">
+        <i class="fa-solid fa-caret-down fa-lg"></i>
+      </div>
+    </div>
+
     <main>
-      <h1 class="district">三民區</h1>
-      <div class="location"></div>
+      <h1 class="district_title">高雄景點</h1>
+      <div class="location">
+      </div>
     </main>
   </div>
+
+  <footer>
+    <ul>
+      <li>高雄旅遊網</li>
+      <li>資料來源:高雄市政府</li>
+    </ul>
+  </footer>
 
   <script src="./js/index.js"></script>
 </body>

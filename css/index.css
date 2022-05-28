@@ -88,8 +88,38 @@ section ul li:last-child{
   background-color: #559AC8;
 }
 
+.dotted_line{
+  position: relative;
+  width: 900px;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(85, 154, 200, .5) 0%, rgba(85, 154, 200, .5) 50%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  margin: 133px auto 0;
+}
+
+.dotted_line .arrow{
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 2px solid #8A82CC;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+.dotted_line i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #559AC8;
+}
+
 main h1{
-  margin-top: 210px;
+  margin-top: 76px;
   font-size: 36px;
   color: #8A82CC;
   text-align: center;
@@ -100,6 +130,12 @@ main ul{
   width: 464px;
   height: 273px;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+  margin: 0 16px 36px 0;
+  position: relative;
+}
+
+main ul:nth-child(2n){
+  margin-right: 0;
 }
 
 main .location{
@@ -108,12 +144,39 @@ main .location{
   justify-content: center;
 }
 
-main ul{
-  margin: 0 16px 36px 0;
+main li{
+  height: 16px;
+  line-height: 16px;
+  margin: 16px 0 0 23px;
 }
 
-main ul:nth-child(2n){
-  margin-right: 0;
+main li img{
+  vertical-align: top;
+  margin-right: 9px;
+}
+
+main li:first-child{
+  margin-top: 0;
+  margin-left: 0;
+}
+
+main li:first-child{
+  margin-top: 0;
+  margin-left: 0;
+}
+
+main li:last-child{
+  width: 100px;
+  margin-top: 0;
+  margin-left: 0;
+  position: absolute;
+  top: 235px;
+  right: 19px;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 main .img_block{
@@ -137,4 +200,29 @@ main p{
   color: #FFFFFF;
   top: 125px;
   right: 19px;
+}
+
+footer{
+  position: relative;
+  width: 1024px;
+  height: 90px;
+  background-color: #559AC8;
+  margin: 0 auto;
+}
+
+footer ul{
+position: absolute;
+top: 24px;
+left: 50%;
+transform: translateX(-50%);
+text-align: center;
+color: #FFFFFF;
+}
+
+footer ul li{
+  margin-bottom: 15px;
+}
+
+footer ul li:nth-child(2){
+  color: #FFD366;
 }
