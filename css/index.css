@@ -75,6 +75,7 @@ section ul li {
   color: #FFFFFF;
   border-radius: 5px;
   background-color: #8A82CC;
+  cursor: pointer;
 }
 
 section ul li:nth-child(2){
@@ -200,6 +201,28 @@ main p{
   color: #FFFFFF;
   top: 125px;
   right: 19px;
+}
+
+.goTop{
+  position: fixed;
+  right: 23%;
+  bottom: 15%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* 回到頂部按鈕隱藏 */
+.hide{
+  visibility: hidden;
+  opacity: 0;
+  transition: all .2s;
+}
+
+/* 回到頂部按鈕顯示 */
+.show{
+  visibility: visible;
+  opacity: 1;
+  transition: all .5s;
 }
 
 footer{

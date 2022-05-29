@@ -2,9 +2,10 @@ let mainContent = document.querySelector('.location');
 let option = document.querySelector('.option');
 let districts = Array.from(document.querySelectorAll('.district'));
 let title = document.querySelector('.district_title');
+let goTop = document.querySelector('.goTop');
 
 // 取得遠端資料
-function getData() {
+async function getData() {
   return fetch(
     'https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json',
   )
@@ -17,7 +18,7 @@ function getData() {
     });
 }
 
-// 利用樣板字面值寫出需渲染的HTML結構與資料
+// 景點內容樣板
 function content(name, picture, zone, openTime, address, tel, ticketInfo) {
   return `
   <ul class="location_detail">
@@ -33,15 +34,10 @@ function content(name, picture, zone, openTime, address, tel, ticketInfo) {
   `;
 }
 
-// select選項樣板
-function options(zone) {
-  return `<option>${zone}</option>`;
-}
-
 // 景點內容獲取，getData回傳結果是一個Promise，所以可以使用then方法
 getData().then(res => {
   // 將data內容透過map一次抓8筆，回傳str函式結果
-  mainContent.innerHTML = res
+  mainContent.innerHTML += res
     .map((item, i) => {
       if (i < 8) {
         // 將data內所需資料作為str函式的參數帶入
@@ -62,21 +58,24 @@ getData().then(res => {
 });
 
 // select選項獲取
-getData().then(res => {
-  let set = new Set();
-  let result = res.filter(item =>
-    !set.has(item.Zone) ? set.add(item.Zone) : false,
-  );
-  option.innerHTML += result.map(item => {
-    return options(item.Zone);
+getData()
+  .then(res => {
+    let set = new Set();
+    let result = res.filter(item =>
+      !set.has(item.Zone) ? set.add(item.Zone) : false,
+    );
+    return result;
+  })
+  .then(result => {
+    result.map(item => {
+      option.innerHTML += `<option class="options" value="${item.Zone}">${item.Zone}</option>`;
+    });
   });
-});
 
 // 點選熱門行政區選項
 districts.forEach(item => {
   item.addEventListener('click', e => {
     title.innerHTML = e.target.innerText;
-
     getData().then(res => {
       // 顯示景點資訊預設0
       let account = 0;
@@ -135,3 +134,25 @@ option.addEventListener('change', e => {
     mainContent.innerHTML = result;
   });
 });
+
+// 回到頂部功能，scrollTo事件
+goTop.addEventListener('click', e => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
+
+// 顯示/隱藏回到頂部按鈕，onscroll事件觸發行為
+window.onscroll = () => {
+  let height = document.documentElement.scrollTop || document.body.scrollTop;
+
+  // 距離瀏覽器頂部高度若為0則隱藏按鈕，反之顯示
+  if (height === 0) {
+    goTop.classList.remove('show');
+    goTop.classList.add('hide');
+  } else {
+    goTop.classList.remove('hide');
+    goTop.classList.add('show');
+  }
+};
